@@ -8,16 +8,12 @@ import net.minecraftforge.event.EventPriority;
 import net.minecraftforge.event.ForgeSubscribe;
 
 import com.ForgeEssentials.api.modules.FEModule;
-import com.ForgeEssentials.api.modules.FEModule.Config;
-import com.ForgeEssentials.api.modules.FEModule.ServerInit;
-import com.ForgeEssentials.api.modules.FEModule.ServerStop;
 import com.ForgeEssentials.api.modules.event.FEModuleServerInitEvent;
 import com.ForgeEssentials.api.modules.event.FEModuleServerStopEvent;
-import com.ForgeEssentials.api.snooper.API;
 import com.ForgeEssentials.api.snooper.VoteEvent;
+import com.ForgeEssentials.api.snooper.snooperAPI;
 import com.ForgeEssentials.core.ForgeEssentials;
 import com.ForgeEssentials.serverVote.Votifier.VoteReceiver;
-import com.ForgeEssentials.serverVote.snooper.VoteResponce;
 import com.ForgeEssentials.util.FunctionHelper;
 import com.ForgeEssentials.util.OutputHandler;
 
@@ -27,7 +23,7 @@ import cpw.mods.fml.common.FMLLog;
 @FEModule(name = "ServerVoteModule", parentMod = ForgeEssentials.class, configClass = ConfigServerVote.class)
 public class ModuleServerVote
 {
-	@Config
+	@FEModule.Config
 	public static ConfigServerVote	config;
 
 	public static VoteReceiver		votifier;
@@ -35,10 +31,9 @@ public class ModuleServerVote
 	public ModuleServerVote()
 	{
 		MinecraftForge.EVENT_BUS.register(this);
-		API.registerResponce(10, new VoteResponce());
 	}
 
-	@ServerInit
+	@FEModule.ServerInit
 	public void serverStarting(FEModuleServerInitEvent e)
 	{
 		try
@@ -54,7 +49,7 @@ public class ModuleServerVote
 		}
 	}
 
-	@ServerStop
+	@FEModule.ServerStop
 	public void serverStopping(FEModuleServerStopEvent e)
 	{
 		try

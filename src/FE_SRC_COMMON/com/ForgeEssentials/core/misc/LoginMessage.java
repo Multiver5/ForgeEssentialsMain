@@ -21,8 +21,6 @@ import com.ForgeEssentials.util.OutputHandler;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 
-//import com.ForgeEssentials.economy.Wallet;
-
 public class LoginMessage
 {
 	private static ArrayList<String>	messageList	= new ArrayList<String>();
@@ -121,7 +119,7 @@ public class LoginMessage
 	/**
 	 * Formats the chat, replacing given strings by their values
 	 * @param String
-	 *            to parse the amount to add to the wallet
+	 * to parse the amount to add to the WalletHandler
 	 */
 
 	@SuppressWarnings("deprecation")
@@ -129,12 +127,12 @@ public class LoginMessage
 	{
 		EntityPlayer player = FMLCommonHandler.instance().getSidedDelegate().getServer().getConfigurationManager().getPlayerForUsername(playerName);
 		Date now = new Date();
-		// int wallet = Wallet.getWallet(player); //needed to return wallet info
+		// int WalletHandler = WalletHandler.getWalletHandler(player); //needed to return WalletHandler info
 		return line.replaceAll("&", FEChatFormatCodes.CODE.toString()) // color
 																		// codes
 		.replaceAll("%playername%", player.username).replaceAll("%players%", online()) // players
-		// .replaceAll("%balance%",wallet + " " +
-		// Wallet.currency(wallet))//can be usefull for the user
+		// .replaceAll("%balance%",WalletHandler + " " +
+		// WalletHandler.currency(WalletHandler))//can be usefull for the user
 		.replaceAll("%uptime%", getUptime()) // uptime
 		.replaceAll("%uniqueplayers%", uniqueplayers()) // unique
 														// players
@@ -150,7 +148,8 @@ public class LoginMessage
 			online = server.getCurrentPlayerCount();
 		}
 		catch (Exception e)
-		{}
+		{
+		}
 		return "" + online;
 	}
 
@@ -162,7 +161,8 @@ public class LoginMessage
 			logins = server.getConfigurationManager().getAvailablePlayerDat().length;
 		}
 		catch (Exception e)
-		{}
+		{
+		}
 		return "" + logins;
 	}
 

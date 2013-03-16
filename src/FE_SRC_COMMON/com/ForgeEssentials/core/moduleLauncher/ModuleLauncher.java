@@ -85,7 +85,7 @@ public class ModuleLauncher
 			{
 				obj = null;
 				c = Class.forName(asm.getClassName());
-				
+
 				try
 				{
 					obj = c.newInstance();
@@ -97,17 +97,17 @@ public class ModuleLauncher
 				{
 					// do nothing.
 				}
-				
+
 				// if this isn't skipped.. it grabs the class, and all static methods.
 				map.scanClass(c);
-				
+
 			}
 			catch (ClassNotFoundException e1)
 			{
 				// nothing needed.
 			}
 		}
-		
+
 		for (ModContainer container : Loader.instance().getModList())
 		{
 			if (container.getMod() != null)

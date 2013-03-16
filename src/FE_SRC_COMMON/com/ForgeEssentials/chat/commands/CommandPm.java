@@ -21,6 +21,7 @@ public class CommandPm extends ForgeEssentialsCommandBase
 {
 	private static Map<String, String>	persistentMessage;
 	private List<String>				aliasList;
+
 	public CommandPm()
 	{
 		super();
@@ -239,5 +240,11 @@ public class CommandPm extends ForgeEssentialsCommandBase
 				receiver.sendChatToPlayer(receiverMessage);
 			}
 		}
+	}
+
+	@Override
+	public List<?> addTabCompletionOptions(ICommandSender sender, String[] args)
+	{
+		return null;
 	}
 }

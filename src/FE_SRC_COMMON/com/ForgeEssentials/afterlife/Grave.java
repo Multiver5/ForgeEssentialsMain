@@ -37,7 +37,7 @@ public class Grave
 	public int			protTime;
 
 	@SaveableField
-	public boolean		protEnable		= true;
+	public boolean		protEnable	= true;
 
 	public Grave(WorldPoint point, EntityPlayer player, ArrayList<EntityItem> drops, Deathchest deathchest)
 	{
@@ -111,7 +111,7 @@ public class Grave
 	{
 		if (!this.protEnable)
 			return true;
-		if (player.username.equals(point))
+		if (player.username.equals(owner))
 			return true;
 		if (PermissionsAPI.checkPermAllowed(new PermQueryPlayer(player, Deathchest.PERMISSION_BYPASS)))
 			return true;

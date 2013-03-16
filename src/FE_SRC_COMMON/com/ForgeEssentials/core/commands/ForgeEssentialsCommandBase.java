@@ -228,7 +228,7 @@ public abstract class ForgeEssentialsCommandBase extends CommandBase
 	/**
 	 * Simply prints a usage message to the sender of the command.
 	 * @param sender
-	 *            Object that issued the command
+	 * Object that issued the command
 	 */
 	public void error(ICommandSender sender)
 	{
@@ -238,9 +238,9 @@ public abstract class ForgeEssentialsCommandBase extends CommandBase
 	/**
 	 * Prints an error message to the sender of the command.
 	 * @param sender
-	 *            Object that issued the command
+	 * Object that issued the command
 	 * @param message
-	 *            Error message
+	 * Error message
 	 */
 	public void error(ICommandSender sender, String message)
 	{
@@ -260,13 +260,7 @@ public abstract class ForgeEssentialsCommandBase extends CommandBase
 	}
 
 	@Override
-	public List<?> addTabCompletionOptions(ICommandSender sender, String[] args)
-	{
-		if (args.length == 0)
-			return getListOfStringsFromIterableMatchingLastWord(args, FMLCommonHandler.instance().getMinecraftServerInstance().getCommandManager().getPossibleCommands(sender));
-		else
-			return getListOfStringsMatchingLastWord(args, FMLCommonHandler.instance().getMinecraftServerInstance().getAllUsernames());
-	}
+	public abstract List<?> addTabCompletionOptions(ICommandSender sender, String[] args);
 
 	public abstract String getCommandPerm();
 
