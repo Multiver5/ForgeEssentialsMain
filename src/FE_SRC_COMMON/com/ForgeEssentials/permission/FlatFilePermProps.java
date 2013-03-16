@@ -51,7 +51,7 @@ public class FlatFilePermProps
 			{
 				for (Property prop : cat.getValues().values())
 				{
-					holder = new PermissionPropHolder(split[1], prop.getName(), prop.value, split[0]);
+					holder = new PermissionPropHolder(split[1], prop.getName(), prop.getString(), split[0]);
 					player.add(holder);
 				}
 			}
@@ -59,7 +59,7 @@ public class FlatFilePermProps
 			{
 				for (Property prop : cat.getValues().values())
 				{
-					holder = new PermissionPropHolder(split[1], prop.getName(), prop.value, split[0]);
+					holder = new PermissionPropHolder(split[1], prop.getName(), prop.getString(), split[0]);
 					group.add(holder);
 				}
 			}
